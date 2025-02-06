@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using CarParkInfo.Models;
+using CarparkInfoApi.Models;
 
 namespace CarParkInfo.models
 {
@@ -7,6 +7,8 @@ namespace CarParkInfo.models
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
+
+        public DbSet<User> Users { get; set; }
         public DbSet<CarPark> CarParks { get; set; }
         public DbSet<CarParkType> CarParkTypes { get; set; }
         public DbSet<ParkingSystem> ParkingSystems { get; set; }

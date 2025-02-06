@@ -1,4 +1,4 @@
-namespace CarParkInfo.Models
+namespace CarparkInfoApi.Models;
 public class ParkingSystem
 {
     public int Id { get; set; }

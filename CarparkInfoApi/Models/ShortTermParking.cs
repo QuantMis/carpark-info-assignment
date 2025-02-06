@@ -1,4 +1,4 @@
-namespace CarParkInfo.Models
+namespace CarparkInfoApi.Models;
 public class ShortTermParking
 {
     public int Id { get; set; }
