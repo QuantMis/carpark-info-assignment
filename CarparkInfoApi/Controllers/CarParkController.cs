@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CarparkInfoApi.Models;
-using CarParkInfo.models;
+using CarparkInfoApi.Persistence;
 
 namespace CarparkInfoApi.Controllers
 {

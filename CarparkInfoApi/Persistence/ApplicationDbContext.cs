@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using CarparkInfoApi.Models;
 
-namespace CarParkInfo.models
+namespace CarparkInfoApi.Persistence
 {
     public class ApplicationDbContext : DbContext
     {
