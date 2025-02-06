@@ -30,6 +30,8 @@ namespace CarparkInfoApi.Controllers
                 .Where(f => f.UserId == userId)
                 .ToListAsync();
 
+
+
             return Ok(favorites);
         }
 
