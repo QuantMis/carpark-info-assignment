@@ -19,7 +19,7 @@ namespace CarparkInfoApi.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        // [Authorize]
         public async Task<ActionResult<IEnumerable<CarPark>>> GetCarParks(
             [FromQuery] bool? free_parking,
             [FromQuery] bool? night_parking,

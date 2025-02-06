@@ -8,7 +8,6 @@ using CarparkInfoApi.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
 
 namespace CarparkInfoApi.Controllers
 {
@@ -23,22 +22,10 @@ namespace CarparkInfoApi.Controllers
             _context = context;
         }
 
-        private int GetUserIdFromToken()
-        {
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
-            {
-                throw new UnauthorizedAccessException("Invalid user token");
-            }
-            return userId;
-        }
-
         [HttpGet]
-        [Authorize]
-        public async Task<ActionResult<IEnumerable<UserFavoriteCarPark>>> GetUserFavorites()
+        // [Authorize]
+        public async Task<ActionResult<IEnumerable<UserFavoriteCarPark>>> GetUserFavorites(int userId)
         {
-            int userId = GetUserIdFromToken();
-
             var favorites = await _context.UserFavoriteCarParks
                 .Where(f => f.UserId == userId)
                 .ToListAsync();
@@ -47,7 +34,7 @@ namespace CarparkInfoApi.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        //  [Authorize]
         public async Task<ActionResult<UserFavoriteCarPark>> CreateFavorite(UserFavoriteCarPark favorite)
         {
             var exists = await _context.UserFavoriteCarParks
