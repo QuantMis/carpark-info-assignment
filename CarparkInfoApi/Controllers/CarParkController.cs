@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CarparkInfoApi.Models;
 using CarparkInfoApi.Persistence;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarparkInfoApi.Controllers
 {
@@ -18,6 +19,7 @@ namespace CarparkInfoApi.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<CarPark>>> GetCarParks(
             [FromQuery] bool? free_parking,
             [FromQuery] bool? night_parking,

@@ -4,6 +4,7 @@ using CarparkInfoApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using CarparkInfoApi.Persistence;
 using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks.Dataflow;
 
 namespace CarparkInfoApi.Controllers
 {
@@ -49,10 +50,11 @@ namespace CarparkInfoApi.Controllers
         }
 
         [HttpGet("profile")]
-        [Authorize]
+        // [Authorize]
         public IActionResult GetUserProfile()
         {
             var username = User.Identity.Name;
+            Console.WriteLine($"User ID claim: {User.Identity}");
 
             var user = _context.Users.FirstOrDefault(u => u.UserName == username);
 
